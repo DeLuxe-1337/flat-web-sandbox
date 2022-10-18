@@ -28,7 +28,7 @@ sh.create({
     { -- Functions
         color = "#4684f0",
         children = {"print", "render", "new", "create", "event"}
-    }
+    },
 
 }, 'flat.element.create("h1", "Hello, world"):render()')
 

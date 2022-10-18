@@ -28,6 +28,10 @@ function module.run(value)
     
         flat.page.dom = js.global.document:getElementById(...)
         flat.page.dom.innerHTML = ""
+
+        flat.page.load_dom = function()
+            
+        end
     ]]
     
 

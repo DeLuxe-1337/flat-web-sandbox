@@ -50,33 +50,39 @@ function module.create(rules, start_code)
 
     flat.styler.new("editor", {
         overflow_x = "hidden",
-        position = "fixed",
+        position = "absolute",
         color = "transparent",
         background_color = "transparent",
         height = "93%",
         width = "50%",
-        border = "none",
+        border = "0",
         resize = "none",
         caret_color = "white",
         z_index = 1,
         spellcheck = "false",
         margin_left = ".5%",
-        outline = "none"
+        outline = "none",
+        font_size = "15pt",
+        font_family = "monospace",
+        line_height = "20pt"
     })
 
     flat.styler.new("editor-visual", {
         overflow = "hidden",
-        position = "fixed",
+        position = "absolute",
         color = "rgb(255, 255, 255)",
         background_color = "rgb(10,10,10)",
         height = "93%",
         width = "50%",
-        border = "none",
+        border = "0",
         resize = "none",
         z_index = 0,
         margin_left = ".5%",
         white_space = "pre-wrap",
-        outline = "none"
+        outline = "none",
+        font_size = "15pt",
+        font_family = "monospace",
+        line_height = "20pt"
     })
 
     module.editor:render()

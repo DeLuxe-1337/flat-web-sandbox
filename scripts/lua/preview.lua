@@ -7,11 +7,11 @@ function module.create()
         overflow_x = "hidden",
         position = "fixed",
         color = "rgb(255, 255, 255)",
-        background_color = "rgb(10,10,10)",
+        background_color = "rgb(20,20,20)",
         height = "93%",
-        width = "45%",
+        width = "48%",
         border = "none",
-        left = "52%"
+        left = "51%"
     })
 
     module.document:render()

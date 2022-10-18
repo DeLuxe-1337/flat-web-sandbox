@@ -13,24 +13,21 @@ run:render()
 flat.element.create("br"):render()
 
 sh.create({
-    { --keywords, pasted from lua.org
-        color = "#34aeeb",
+    { -- Strings
+        color = "#4a4646",
+        children = {'%b""', "%b''"}
+    },
+    { -- keywords, pasted from lua.org
+        color = "#de421f",
         children = split_str(
             ("%s(and)%s,(break),(do)%s,(else)%s,(elseif)%s,(end%s)%s,(for)%s,(function)%s,(if)%s,%s(in)%s,(local)%s,(nil),(not)%s,(repeat)%s,(return)%s,%s(then)%s,(until)%s,(while)%s"),
             ",")
     },
-    ["true"] = "#63db93", --true bool
-    ["false"] = "#db636b", --false bool
-    { --Functions
-        color = "#de421f",
-        children = {"print", "render"}
-    },
-    { --Strings
-        color = "#4a4646",
-        children = {
-            '%b""',
-            "%b''",
-        }
+    ["true"] = "#63db93", -- true bool
+    ["false"] = "#db636b", -- false bool
+    { -- Functions
+        color = "#4684f0",
+        children = {"print", "render", "new", "create", "event"}
     }
 
 }, 'flat.element.create("h1", "Hello, world"):render()')

@@ -13,20 +13,26 @@ run:render()
 flat.element.create("br"):render()
 
 sh.create({
-    {
+    { --keywords, pasted from lua.org
         color = "#34aeeb",
         children = split_str(
             ("%s(and)%s,(break),(do)%s,(else)%s,(elseif)%s,(end%s)%s,(for)%s,(function)%s,(if)%s,%s(in)%s,(local)%s,(nil),(not)%s,(repeat)%s,(return)%s,%s(then)%s,(until)%s,(while)%s"),
             ",")
     },
-    ["true"] = "#63db93",
-    ["false"] = "#db636b",
-    {
+    ["true"] = "#63db93", --true bool
+    ["false"] = "#db636b", --false bool
+    { --Functions
         color = "#de421f",
         children = {"print", "render"}
     },
-    ["\".+\""] = "#4a4646",
-    ["\'.+\'"] = "#4a4646"
+    { --Strings
+        color = "#4a4646",
+        children = {
+            '%b""',
+            "%b''",
+        }
+    }
+
 }, 'flat.element.create("h1", "Hello, world"):render()')
 
 local preview = require "scripts.lua.preview"

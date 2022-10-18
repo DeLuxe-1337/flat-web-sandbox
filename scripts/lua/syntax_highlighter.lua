@@ -1,6 +1,18 @@
 local flat = _G.flat
 local module = {}
 
+function split_str(s, delimiter)
+    result = {};
+    for match in (s .. delimiter):gmatch("(.-)" .. delimiter) do
+        table.insert(result, match);
+    end
+    return result;
+end
+
+function invisible_char(d)
+    return d:sub(0, #d - 1) .. "\0" .. tostring(d:sub(#d, #d))
+end
+
 function module.highlight(hl)
     local text = module.editor.value
     local build = text
@@ -9,25 +21,18 @@ function module.highlight(hl)
         if type(v) == "table" then
             for a, g in pairs(v.children) do
                 for d in string.gmatch(text, g) do
-                    build = build:gsub(d, "<font color=\"" .. v.color .. "\">" .. d:sub(0, #d - 1) .. "\0" .. tostring(d:sub(#d, #d)) .. "</font>")
+                    build = build:gsub(d, "<font color=\"" .. v.color .. "\">" .. invisible_char(d) .. "</font>")
                 end
             end
         else
+            print(i)
             for d in string.gmatch(text, i) do
-                build = build:gsub(d, "<font color=\"" .. v .. "\">" .. d:sub(0, #d - 1) .. "\0" .. tostring(d:sub(#d, #d)) .. "</font>")
+                build = build:gsub(d, "<font color=\"" .. v .. "\">" .. invisible_char(d) .. "</font>")
             end
         end
     end
 
     module.visual.innerHTML = build
-end
-
-function split_str(s, delimiter)
-    result = {};
-    for match in (s .. delimiter):gmatch("(.-)" .. delimiter) do
-        table.insert(result, match);
-    end
-    return result;
 end
 
 function module.create(rules, start_code)
@@ -39,7 +44,7 @@ function module.create(rules, start_code)
         autocomplete = "off",
         autocorrect = "off",
         autocapitalize = "off",
-        spellcheck = "false"
+        spellcheck = false
     })
     module.visual = flat.element.create("div", start_code)
 

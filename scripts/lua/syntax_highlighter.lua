@@ -68,7 +68,8 @@ function module.create(rules, start_code)
     })
 
     flat.styler.new("editor-visual", {
-        overflow = "hidden",
+        overflow = "auto",
+        word_wrap = "break-word",
         position = "absolute",
         color = "rgb(255, 255, 255)",
         background_color = "rgb(10,10,10)",

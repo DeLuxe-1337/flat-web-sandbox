@@ -60,7 +60,8 @@ function module.create(rules, start_code)
         caret_color = "white",
         z_index = 1,
         spellcheck = "false",
-        margin_left = ".5%"
+        margin_left = ".5%",
+        outline = "none"
     })
 
     flat.styler.new("editor-visual", {
@@ -75,6 +76,7 @@ function module.create(rules, start_code)
         z_index = 0,
         margin_left = ".5%",
         white_space = "pre-wrap",
+        outline = "none"
     })
 
     module.editor:render()
@@ -93,7 +95,7 @@ function module.create(rules, start_code)
         if key.key == "F5" then
             if module.debug then
                 key:preventDefault()
-                
+
                 module.debug()
             end
         end

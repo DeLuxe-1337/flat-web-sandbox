@@ -19,5 +19,19 @@ function module.create()
     flat.styler.use("document", module.document)
 end
 
+function module.run(value)
+    local sandbox_init = [[
+        local flat = require "flat.require"
+        
+        flat.init()
+        flat.element.page = flat.page
+    
+        flat.page.dom = js.global.document:getElementById(...)
+        flat.page.dom.innerHTML = ""
+    ]]
+    
+
+    load(sandbox_init .. value)(module.document.id)
+end
 
 return module

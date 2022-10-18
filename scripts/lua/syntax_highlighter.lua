@@ -90,6 +90,14 @@ function module.create(rules, start_code)
     end)
 
     module.editor:event("keydown", function(_, key)
+        if key.key == "F5" then
+            if module.debug then
+                key:preventDefault()
+                
+                module.debug()
+            end
+        end
+
         if key.key == "Tab" then
             key:preventDefault()
 
@@ -100,6 +108,7 @@ function module.create(rules, start_code)
             ed.value = ed.value:sub(0, start_s) .. "\t" .. ed.value:sub(end_s)
             ed.selectionStart = start_s + 1
             ed.selectionEnd = start_s + 1
+            return
         end
     end)
 

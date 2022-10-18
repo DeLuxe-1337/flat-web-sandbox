@@ -35,20 +35,12 @@ sh.create({
 local preview = require "scripts.lua.preview"
 preview.create()
 
-local sandbox_init = [[
-    local flat = require "flat.require"
-    
-    flat.init()
-    flat.element.page = flat.page
-
-    flat.page.dom = js.global.document:getElementById(...)
-    flat.page.dom.innerHTML = ""
-]]
-
 run:event("click", function()
-    load(sandbox_init .. sh.editor.value)(preview.document.id)
+    preview.run(sh.editor.value)
 end)
 
-load(sandbox_init .. [[
-flat.element.create("h1", "Hello, world"):render()
-]])(preview.document.id)
+sh.debug = function()
+    preview.run(sh.editor.value)
+end
+
+preview.run('flat.element.create("h1", "Hello, world"):render()')

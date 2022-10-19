@@ -64,7 +64,11 @@ function module.create(rules, start_code)
         outline = "none",
         font_size = "15pt",
         font_family = "monospace",
-        line_height = "20pt"
+        line_height = "20pt",
+        padding_left = 0,
+        padding_right = 0,
+        padding_top = 0,
+        padding_bottom = 0
     })
 
     flat.styler.new({"editor-visual", "editor"}, {

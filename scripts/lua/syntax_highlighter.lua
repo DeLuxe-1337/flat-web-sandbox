@@ -1,6 +1,8 @@
 local flat = _G.flat
 local module = {}
 
+local window = require"js".global
+
 function split_str(s, delimiter)
     result = {};
     for match in (s .. delimiter):gmatch("(.-)" .. delimiter) do

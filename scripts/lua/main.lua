@@ -52,8 +52,6 @@ flat.component.new("alert", function()
     }
 end)
 
-flat.element.create("br"):render()
-
 sh.create({
     { -- Strings
         color = "#4a4646",

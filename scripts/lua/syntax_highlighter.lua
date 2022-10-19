@@ -49,7 +49,7 @@ function module.create(rules, start_code)
     module.visual = flat.element.create("div", start_code)
 
     flat.styler.new("editor", {
-        overflow_x = "hidden",
+        overflow = "auto",
         position = "absolute",
         color = "transparent",
         background_color = "transparent",
@@ -67,23 +67,12 @@ function module.create(rules, start_code)
         line_height = "20pt"
     })
 
-    flat.styler.new("editor-visual", {
-        overflow = "auto",
+    flat.styler.new({"editor-visual", "editor"}, {
         word_wrap = "break-word",
-        position = "absolute",
         color = "rgb(255, 255, 255)",
         background_color = "rgb(10,10,10)",
-        height = "93%",
-        width = "50%",
-        border = "0",
-        resize = "none",
         z_index = 0,
-        margin_left = ".5%",
         white_space = "pre-wrap",
-        outline = "none",
-        font_size = "15pt",
-        font_family = "monospace",
-        line_height = "20pt"
     })
 
     module.editor:render()

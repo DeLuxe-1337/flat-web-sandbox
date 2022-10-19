@@ -27,7 +27,6 @@ function module.highlight(hl)
                 end
             end
         else
-            print(i)
             for d in string.gmatch(text, i) do
                 build = build:gsub(d, "<font color=\"" .. v .. "\">" .. invisible_char(d) .. "</font>")
             end
